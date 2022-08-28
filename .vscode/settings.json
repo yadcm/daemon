@@ -1,0 +1,5 @@
+{//@audit-ok project specific settings only
+    "protoc": {"options": [
+        "-I=api/protobuf"
+    ]},
+}

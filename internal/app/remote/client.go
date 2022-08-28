@@ -1,11 +1,11 @@
-package app
+package remote
 
 import (
 	"context"
 	"net/netip"
 	"time"
 
-	protocol "yadcmd/internal/pb/yadcmd.daemon"
+	protocol "yadcmd/internal/pb/protocol/daemon"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -18,7 +18,7 @@ const (
 )
 
 type Client struct {
-	protocol.DaemonClient
+	protocol.ExternalAPIClient
 	conn *grpc.ClientConn
 }
 
@@ -36,7 +36,7 @@ func NewClient(addr netip.AddrPort) (*Client, error) {
 		return nil, err
 	}
 	var cl Client
-	cl.DaemonClient = protocol.NewDaemonClient(conn)
+	cl.ExternalAPIClient = protocol.NewExternalAPIClient(conn)
 	cl.conn = conn
 	return &cl, nil
 }

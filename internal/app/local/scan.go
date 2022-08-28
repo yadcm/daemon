@@ -1,4 +1,4 @@
-package app
+package local
 
 //@todo find local addr
 //@todo cidr from config

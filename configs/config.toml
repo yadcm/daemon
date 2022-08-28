@@ -1,0 +1,12 @@
+[serve.local]
+[serve.local.unix]
+socket = "yadcmd.sock"
+
+[serve.local.tcp]
+ip = [0,0,0,0]
+port = 49070
+
+[serve.remote]
+[serve.remote.tcp]
+ip = [0,0,0,0]
+port = 49069

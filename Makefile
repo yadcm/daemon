@@ -11,12 +11,13 @@ docker-generate:
 	@go mod tidy
 
 generate:
-	@protoc --proto_path=api/protobuf\
-			--go_out=internal/pb\
-			--go_opt=paths=import\
-			--go-grpc_out=internal/pb\
-			--go-grpc_opt=paths=import\
-			api/protobuf/*.proto
+	@protoc\
+		--proto_path=api/protobuf\
+		--go_out=internal/pb\
+		--go_opt=paths=import\
+		--go-grpc_out=internal/pb\
+		--go-grpc_opt=paths=import\
+		api/protobuf/*.proto
 
 dependency-install:
 	@go get $(GRPC_DEPS)
